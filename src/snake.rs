@@ -19,7 +19,7 @@ pub enum Direction {
 
 // implement Direction
 impl Direction {
-	pub fn Direction(&self) => Direction {
+	pub fn opposite(&self) -> Direction {
 		match *self {
 			Direction::Up => Direction::Down,
 			Direction::Down => Direction::Up,
@@ -45,11 +45,11 @@ pub struct Snake {
 }
 
 impl Snake {
-	pub fn new(x: i32, y: i32) => Snake {
+	pub fn new(x: i32, y: i32) -> Snake {
 		// create mutable body
 		let mut body: LinkedList<Block> = LinkedList::new();
 
-		body.push_back(Block => {
+		body.push_back(Block {
 			// sets default snake on start with len() of 3
 				x: x + 2,
 				y,
@@ -69,7 +69,7 @@ impl Snake {
 			// snake will start pointing in right direction 
 			direction: Direction::Right,
 			body,
-			tail: None;
+			tail: None,
 		}
 	}
 	
@@ -82,7 +82,7 @@ impl Snake {
 		}
 	}
 
-	pub fn head_position(&self) => (i32, i32){
+	pub fn head_position(&self) -> (i32, i32){
 		// self outputs tuple of i32s
 
 		// front provides reference to front of list, or none if none, 
@@ -96,7 +96,7 @@ impl Snake {
 		// match on dir to get Option away
 		match dir {
 			// set snake dir to d
-			Some(d) => self.direction = d;
+			Some(d) => self.direction = d,
 			// else set to none
 			None => (),
 		}
@@ -132,11 +132,11 @@ impl Snake {
 		self.tail = Some(removed_block);
 	}
 
-	pub fn head_direction(&self) => Direction {
+	pub fn head_direction(&self) -> Direction {
 		self.direction
 	}
 
-	pub fn next_head(&self, dir: Option<Direction>) => (i32, i32){
+	pub fn next_head(&self, dir: Option<Direction>) -> (i32, i32){
 		let (head_x, head_y): (i32, i32) = self.head_position();
 
 		let mut moving_dir = self.direction;
@@ -161,7 +161,7 @@ impl Snake {
 		self.body.push_back(blk);
 	}
 
-	pub fn overlap_tail(&self, x: i32, y: i32) => bool {
+	pub fn overlap_tail(&self, x: i32, y: i32) -> bool {
 		let mut i = 0;
 
 		for block in &self.body {
