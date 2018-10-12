@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["mau5atron <gabrielbetancourt96@outlook.com>"]
 
 [dependencies]
-rand = "*"
-piston_window = "*"
+rand = "0.5.5"
+piston_window = "0.81.0"
