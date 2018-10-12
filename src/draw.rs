@@ -1,12 +1,12 @@
 // import piston_window dep // definition of rectangle, 
 // Context allows drawing of 2d content, G2d to draw
 use piston_window::{rectangle, Context, G2d};
-use piston_window::types::color;
+use piston_window::types::Color;
 // const ,type annotation, value of const
 const BLOCK_SIZE: f64 = 25.0;
 
 // pub export to program
-pub fn to_coord(game_coord: i32) => f64 {
+pub fn to_coord(game_coord: i32) -> f64 {
 	// scale up by block size
 	(game_coord as f64) * BLOCK_SIZE
 }
