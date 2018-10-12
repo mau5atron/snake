@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["mau5atron <gabrielbetancourt96@outlook.com>"]
 
 [dependencies]
+rand = "*"
+piston_window = "*"
